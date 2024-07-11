@@ -13,7 +13,7 @@ public struct Slur {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
     public let type: StartStopContinue
     public let number: Int?
     public let lineType: LineType?
@@ -28,7 +28,7 @@ public struct Slur {
 
     // MARK: - Initializers
 
-    public init(type: StartStopContinue, number: Int? = nil, lineType: LineType? = nil, dashedFormatting: DashedFormatting = DashedFormatting(), position: Position = Position(), placement: AboveBelow? = nil, orientation: OverUnder? = nil, bezier: Bezier = Bezier(), color: Color? = nil) {
+    public init(type: StartStopContinue, number: Int? = nil, lineType: LineType? = nil, dashedFormatting: DashedFormatting = DashedFormatting(), position: Position = Position(), placement: AboveBelow? = nil, orientation: OverUnder? = nil, bezier: Bezier = Bezier(), color: XMLColor? = nil) {
         self.type = type
         self.number = number
         self.lineType = lineType
@@ -81,7 +81,7 @@ extension Slur: Codable {
         placement = try container.decodeIfPresent(AboveBelow.self, forKey: .placement)
         orientation = try container.decodeIfPresent(OverUnder.self, forKey: .orientation)
         bezier = try Bezier(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

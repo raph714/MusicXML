@@ -11,7 +11,7 @@ public struct GroupBarline {
 
     // MARK: Attributes
 
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: Value
 
@@ -19,7 +19,7 @@ public struct GroupBarline {
 
     // MARK: - Initializers
 
-    public init(_ value: GroupBarlineValue, color: Color? = nil) {
+    public init(_ value: GroupBarlineValue, color: XMLColor? = nil) {
         self.value = value
         self.color = color
     }

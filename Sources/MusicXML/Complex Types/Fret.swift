@@ -12,7 +12,7 @@ public struct Fret {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -26,7 +26,7 @@ public struct Fret {
 
     public init(
         _ value: Int = 0,
-        color: Color? = nil,
+        color: XMLColor? = nil,
         font: Font = Font()
     ) {
         self.value = value
@@ -57,7 +57,7 @@ extension Fret: Codable {
         self.font = try Font(from: decoder)
         // Decode one-off attribute
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         // Decode value
         do {
             self.value = try container.decode(Int.self, forKey: .value)

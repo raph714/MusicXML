@@ -11,7 +11,7 @@
 /// is assumed to be FF.  For instance, the RGB value "#800080" represents purple. An ARGB value of
 /// "#40800080" would be a transparent purple.  As in SVG 1.1, colors are defined in terms of the
 /// sRGB color space (IEC 61966).
-public struct Color {
+public struct XMLColor {
     public let hexValue: Int
 
     public init(hexValue: Int) {
@@ -25,17 +25,17 @@ public struct Color {
     }
 }
 
-extension Color: Equatable {}
-extension Color: Codable {
+extension XMLColor: Equatable {}
+extension XMLColor: Codable {
     private enum CodingKeys: String, CodingKey {
         case hexValue = ""
     }
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        guard let color = Color(hexString: try container.decode(String.self)) else {
+        guard let color = XMLColor(hexString: try container.decode(String.self)) else {
             throw DecodingError.typeMismatch(
-                Color.self,
+                XMLColor.self,
                 DecodingError.Context(
                     codingPath: decoder.codingPath,
                     debugDescription: "Could not create a `Color` from the given XML string."

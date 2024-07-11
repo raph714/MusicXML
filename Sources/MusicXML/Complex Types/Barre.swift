@@ -14,11 +14,11 @@ public struct Barre {
     // MARK: Attributes
 
     public let type: StartStop
-    public let color: Color
+    public let color: XMLColor
 
     // MARK: - Initializers
 
-    public init(type: StartStop, color: Color) {
+    public init(type: StartStop, color: XMLColor) {
         self.type = type
         self.color = color
     }

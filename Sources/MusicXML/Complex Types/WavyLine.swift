@@ -15,7 +15,7 @@ public struct WavyLine {
     public let type: StartStopContinue
     public let number: Int?
     public let placement: AboveBelow?
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -24,7 +24,7 @@ public struct WavyLine {
 
     // MARK: - Initializers
 
-    public init(type: StartStopContinue, number: Int? = nil, position: Position = Position(), placement: AboveBelow? = nil, color: Color? = nil, trillSound: TrillSound = TrillSound()) {
+    public init(type: StartStopContinue, number: Int? = nil, position: Position = Position(), placement: AboveBelow? = nil, color: XMLColor? = nil, trillSound: TrillSound = TrillSound()) {
         self.type = type
         self.number = number
         self.position = position
@@ -65,7 +65,7 @@ extension WavyLine: Codable {
         number = try container.decodeIfPresent(Int.self, forKey: .number)
         position = try Position(from: decoder)
         placement = try container.decodeIfPresent(AboveBelow.self, forKey: .placement)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         trillSound = try TrillSound(from: decoder)
     }
 }

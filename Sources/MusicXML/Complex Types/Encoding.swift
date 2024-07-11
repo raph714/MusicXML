@@ -89,7 +89,7 @@ extension Encoding.Kind: Codable {
                 Encoding.Kind.self,
                 DecodingError.Context(
                     codingPath: decoder.codingPath,
-                    debugDescription: "Unrecognized choice"
+                    debugDescription: ""
                 )
             )
         }

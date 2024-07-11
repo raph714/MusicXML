@@ -14,7 +14,7 @@ public struct TextElementData {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
     public let textRotation: Double?
     public let letterSpacing: NumberOrNormal?
     public let direction: TextDirection?
@@ -33,7 +33,7 @@ public struct TextElementData {
     public init(
         _ value: String,
         font: Font = Font(),
-        color: Color? = nil,
+        color: XMLColor? = nil,
         textDecoration: TextDecoration = TextDecoration(),
         textRotation: Double? = nil,
         letterSpacing: NumberOrNormal? = nil,
@@ -81,7 +81,7 @@ extension TextElementData: Codable {
         value = try container.decode(String.self, forKey: .value)
         font = try Font(from: decoder)
         textDecoration = try TextDecoration(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         textRotation = try container.decodeIfPresent(Double.self, forKey: .textRotation)
         letterSpacing = try container.decodeIfPresent(NumberOrNormal.self, forKey: .letterSpacing)
         direction = try container.decodeIfPresent(TextDirection.self, forKey: .direction)

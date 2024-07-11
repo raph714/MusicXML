@@ -17,7 +17,7 @@ public struct PartSymbol {
 
     public let topStaff: Int?
     public let bottomStaff: Int?
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -29,7 +29,7 @@ public struct PartSymbol {
 
     // MARK: - Initializers
 
-    public init(_ value: GroupSymbolValue, topStaff: Int, bottomStaff: Int, position: Position, color: Color) {
+    public init(_ value: GroupSymbolValue, topStaff: Int, bottomStaff: Int, position: Position, color: XMLColor) {
         self.value = value
         self.topStaff = topStaff
         self.bottomStaff = bottomStaff

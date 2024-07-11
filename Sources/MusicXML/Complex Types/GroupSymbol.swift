@@ -13,7 +13,7 @@ public struct GroupSymbol {
 
     // MARK: Attributes
 
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -25,7 +25,7 @@ public struct GroupSymbol {
 
     // MARK: - Initializers
 
-    public init(_ value: GroupSymbolValue, position: Position = Position(), color: Color? = nil) {
+    public init(_ value: GroupSymbolValue, position: Position = Position(), color: XMLColor? = nil) {
         self.value = value
         self.position = position
         self.color = color
@@ -56,7 +56,7 @@ extension GroupSymbol: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         value = try container.decode(GroupSymbolValue.self, forKey: .value)
         position = try Position(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

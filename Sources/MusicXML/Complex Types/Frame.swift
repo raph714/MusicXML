@@ -12,7 +12,7 @@ public struct Frame {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
     public let hAlign: LeftCenterRight?
     public let vAlign: VAlignImage?
     public let height: Tenths?
@@ -43,7 +43,7 @@ public struct Frame {
 
     public init(
         position: Position = Position(),
-        color: Color? = nil,
+        color: XMLColor? = nil,
         hAlign: LeftCenterRight? = nil,
         vAlign: VAlignImage? = nil,
         height: Tenths? = nil,
@@ -94,7 +94,7 @@ extension Frame: Codable {
         self.position = try Position(from: decoder)
         // Decode attributes
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         self.hAlign = try container.decodeIfPresent(LeftCenterRight.self, forKey: .hAlign)
         self.vAlign = try container.decodeIfPresent(VAlignImage.self, forKey: .vAlign)
         self.height = try container.decodeIfPresent(Tenths.self, forKey: .height)

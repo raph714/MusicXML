@@ -11,7 +11,7 @@ public struct BarStyleColor {
 
     // MARK: Attributes
 
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: Value
 
@@ -19,7 +19,7 @@ public struct BarStyleColor {
 
     // MARK: - Initializers
 
-    public init(_ value: BarStyle, color: Color? = nil) {
+    public init(_ value: BarStyle, color: XMLColor? = nil) {
         self.value = value
         self.color = color
     }

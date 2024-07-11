@@ -15,7 +15,7 @@ public struct Notehead {
 
     public let filled: Bool?
     public let parentheses: Bool?
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -27,7 +27,7 @@ public struct Notehead {
 
     // MARK: - Initializers
 
-    public init(_ value: NoteheadValue, filled: Bool? = nil, parentheses: Bool? = nil, font: Font = Font(), color: Color? = nil) {
+    public init(_ value: NoteheadValue, filled: Bool? = nil, parentheses: Bool? = nil, font: Font = Font(), color: XMLColor? = nil) {
         self.value = value
         self.filled = filled
         self.parentheses = parentheses
@@ -55,7 +55,7 @@ extension Notehead: Codable {
         self.value = try container.decode(NoteheadValue.self, forKey: .value)
         self.filled = try container.decodeIfPresent(Bool.self, forKey: .filled)
         self.parentheses = try container.decodeIfPresent(Bool.self, forKey: .parentheses)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 
     // MARK: Encodable

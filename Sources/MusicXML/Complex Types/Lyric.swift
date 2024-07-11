@@ -30,7 +30,7 @@ public struct Lyric {
     public let name: String?
 
     public let justify: LeftCenterRight?
-    public let color: Color?
+    public let color: XMLColor?
     public let placement: AboveBelow?
     public let printObject: Bool?
 
@@ -63,7 +63,7 @@ public struct Lyric {
         position: Position = Position(),
         placement: AboveBelow? = nil,
         printObject: Bool? = nil,
-        color: Color? = nil,
+        color: XMLColor? = nil,
         endLine: Bool = false,
         endParagraph: Bool = false,
         level: Level? = nil
@@ -152,7 +152,7 @@ extension Lyric: Codable {
         self.name = try container.decodeIfPresent(String.self, forKey: .name)
 
         self.justify = try container.decodeIfPresent(LeftCenterRight.self, forKey: .justify)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         self.placement = try container.decodeIfPresent(AboveBelow.self, forKey: .placement)
         self.printObject = try container.decodeIfPresent(Bool.self, forKey: .printObject)
 

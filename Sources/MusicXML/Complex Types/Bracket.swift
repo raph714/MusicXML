@@ -20,7 +20,7 @@ public struct Bracket {
     public let lineType: LineType?
     public let dashLength: Tenths?
     public let spaceLength: Tenths?
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -28,7 +28,7 @@ public struct Bracket {
 
     // MARK: - Initializers
 
-    public init(type: StartStopContinue, number: Int? = nil, lineEnd: LineEnd, endLength: Tenths? = nil, lineType: LineType? = nil, dashLength: Tenths? = nil, spaceLength: Tenths? = nil, position: Position = Position(), color: Color? = nil) {
+    public init(type: StartStopContinue, number: Int? = nil, lineEnd: LineEnd, endLength: Tenths? = nil, lineType: LineType? = nil, dashLength: Tenths? = nil, spaceLength: Tenths? = nil, position: Position = Position(), color: XMLColor? = nil) {
         self.type = type
         self.number = number
         self.lineEnd = lineEnd
@@ -68,7 +68,7 @@ extension Bracket: Codable {
         self.dashLength = try container.decodeIfPresent(Tenths.self, forKey: .dashLength)
         self.spaceLength = try container.decodeIfPresent(Tenths.self, forKey: .spaceLength)
         self.position = try Position(from: decoder)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

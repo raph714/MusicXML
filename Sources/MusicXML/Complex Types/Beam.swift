@@ -20,11 +20,11 @@ public struct Beam {
     public var number: BeamLevel?
     public var repeater: Bool?
     public var fan: Fan?
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: - Initializers
 
-    public init(_ value: BeamValue, number: BeamLevel? = nil, repeater: Bool? = nil, fan: Fan? = nil, color: Color? = nil) {
+    public init(_ value: BeamValue, number: BeamLevel? = nil, repeater: Bool? = nil, fan: Fan? = nil, color: XMLColor? = nil) {
         self.value = value
         self.number = number
         self.repeater = repeater

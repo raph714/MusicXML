@@ -25,7 +25,7 @@ public struct Wedge {
     /// type is crescendo, or the type is stop for a wedge that began with a diminuendo type.
     public let niente: Bool?
     public let lineType: LineType?
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -34,7 +34,7 @@ public struct Wedge {
 
     // MARK: - Initializers
 
-    public init(type: WedgeType, number: Int? = nil, spread: Tenths? = nil, niente: Bool? = nil, lineType: LineType? = nil, dashedFormatting: DashedFormatting = DashedFormatting(), position: Position = Position(), color: Color? = nil) {
+    public init(type: WedgeType, number: Int? = nil, spread: Tenths? = nil, niente: Bool? = nil, lineType: LineType? = nil, dashedFormatting: DashedFormatting = DashedFormatting(), position: Position = Position(), color: XMLColor? = nil) {
         self.type = type
         self.number = number
         self.spread = spread
@@ -84,7 +84,7 @@ extension Wedge: Codable {
         lineType = try container.decodeIfPresent(LineType.self, forKey: .lineType)
         dashedFormatting = try DashedFormatting(from: decoder)
         position = try Position(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

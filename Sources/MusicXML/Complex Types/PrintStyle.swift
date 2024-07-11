@@ -12,7 +12,7 @@ public struct PrintStyle {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -21,7 +21,7 @@ public struct PrintStyle {
 
     // MARK: - Initializers
 
-    public init(position: Position = Position(), font: Font = Font(), color: Color? = nil) {
+    public init(position: Position = Position(), font: Font = Font(), color: XMLColor? = nil) {
         self.position = position
         self.font = font
         self.color = color
@@ -42,7 +42,7 @@ extension PrintStyle: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.position = try Position(from: decoder)
         self.font = try Font(from: decoder)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 
     // MARK: Encodable

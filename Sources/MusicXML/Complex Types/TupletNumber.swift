@@ -11,7 +11,7 @@ public struct TupletNumber {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -23,7 +23,7 @@ public struct TupletNumber {
 
     // MARK: - Initializers
 
-    public init(_ value: Int, font: Font = Font(), color: Color? = nil) {
+    public init(_ value: Int, font: Font = Font(), color: XMLColor? = nil) {
         self.value = value
         self.font = font
         self.color = color
@@ -45,7 +45,7 @@ extension TupletNumber: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         value = try container.decode(Int.self, forKey: .value)
         font = try Font(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 
     // MARK: Encodable

@@ -11,7 +11,7 @@ public struct TupletDot {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -19,7 +19,7 @@ public struct TupletDot {
 
     // MARK: - Initializers
 
-    public init(font: Font = Font(), color: Color? = nil) {
+    public init(font: Font = Font(), color: XMLColor? = nil) {
         self.font = font
         self.color = color
     }
@@ -46,7 +46,7 @@ extension TupletDot: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         font = try Font(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

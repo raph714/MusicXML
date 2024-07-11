@@ -22,11 +22,11 @@ public struct Tied {
     public var lineType: LineType?
     public var placement: AboveBelow?
     public var orientation: OverUnder?
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: - Initializers
 
-    public init(type: StartStopContinue, number: Int? = nil, lineType: LineType? = nil, dashedFormatting: DashedFormatting = DashedFormatting(), position: Position = Position(), placement: AboveBelow? = nil, orientation: OverUnder? = nil, bezier: Bezier = Bezier(), color: Color? = nil) {
+    public init(type: StartStopContinue, number: Int? = nil, lineType: LineType? = nil, dashedFormatting: DashedFormatting = DashedFormatting(), position: Position = Position(), placement: AboveBelow? = nil, orientation: OverUnder? = nil, bezier: Bezier = Bezier(), color: XMLColor? = nil) {
         self.type = type
         self.number = number
         self.lineType = lineType
@@ -79,7 +79,7 @@ extension Tied: Codable {
         placement = try container.decodeIfPresent(AboveBelow.self, forKey: .placement)
         orientation = try container.decodeIfPresent(OverUnder.self, forKey: .orientation)
         bezier = try Bezier(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

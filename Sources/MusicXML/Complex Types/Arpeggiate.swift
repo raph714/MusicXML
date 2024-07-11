@@ -14,7 +14,7 @@ public struct Arpeggiate {
     public var number: Int?
     public var direction: UpDown?
     public var placement: AboveBelow?
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -22,7 +22,7 @@ public struct Arpeggiate {
 
     // MARK: - Initializers
 
-    public init(number: Int? = nil, direction: UpDown? = nil, position: Position = Position(), placement: AboveBelow? = nil, color: Color? = nil) {
+    public init(number: Int? = nil, direction: UpDown? = nil, position: Position = Position(), placement: AboveBelow? = nil, color: XMLColor? = nil) {
         self.number = number
         self.direction = direction
         self.position = position
@@ -61,7 +61,7 @@ extension Arpeggiate: Codable {
         direction = try container.decodeIfPresent(UpDown.self, forKey: .direction)
         position = try Position(from: decoder)
         placement = try container.decodeIfPresent(AboveBelow.self, forKey: .placement)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 

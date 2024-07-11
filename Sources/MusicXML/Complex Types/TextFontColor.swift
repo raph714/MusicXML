@@ -12,7 +12,7 @@ public struct TextFontColor {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
     public let textRotation: Double?
     public let letterSpacing: NumberOrNormal?
     public let dir: TextDirection?
@@ -28,7 +28,7 @@ public struct TextFontColor {
 
     // MARK: - Initializers
 
-    public init(_ value: String, font: Font = Font(), color: Color? = nil, textDecoration: TextDecoration = TextDecoration(), textRotation: Double? = nil, letterSpacing: NumberOrNormal? = nil, dir: TextDirection? = nil) {
+    public init(_ value: String, font: Font = Font(), color: XMLColor? = nil, textDecoration: TextDecoration = TextDecoration(), textRotation: Double? = nil, letterSpacing: NumberOrNormal? = nil, dir: TextDirection? = nil) {
         self.value = value
         self.font = font
         self.color = color
@@ -70,7 +70,7 @@ extension TextFontColor: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         value = try container.decode(String.self, forKey: .value)
         font = try Font(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         textDecoration = try TextDecoration(from: decoder)
         textRotation = try container.decodeIfPresent(Double.self, forKey: .textRotation)
         letterSpacing = try container.decodeIfPresent(NumberOrNormal.self, forKey: .letterSpacing)

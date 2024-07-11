@@ -19,7 +19,7 @@ public struct MeasureStyle {
     // MARK: Attributes
 
     public var number: Int?
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -31,7 +31,7 @@ public struct MeasureStyle {
 
     // MARK: - Initializers
 
-    public init(number: Int? = nil, font: Font = Font(), color: Color? = nil, kind: Kind) {
+    public init(number: Int? = nil, font: Font = Font(), color: XMLColor? = nil, kind: Kind) {
         self.number = number
         self.font = font
         self.color = color
@@ -116,7 +116,7 @@ extension MeasureStyle: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         number = try container.decodeIfPresent(Int.self, forKey: .number)
         font = try Font(from: decoder)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
         kind = try Kind(from: decoder)
     }
 

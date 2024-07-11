@@ -15,7 +15,7 @@ public struct Stem {
 
     // MARK: Attributes
 
-    public let color: Color?
+    public let color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -27,7 +27,7 @@ public struct Stem {
 
     // MARK: Initializers
 
-    public init(_ value: StemValue, position: Position = Position(), color: Color? = nil) {
+    public init(_ value: StemValue, position: Position = Position(), color: XMLColor? = nil) {
         self.value = value
         self.position = position
         self.color = color
@@ -58,7 +58,7 @@ extension Stem: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.value = try container.decode(StemValue.self, forKey: .value)
         self.position = try Position(from: decoder)
-        self.color = try container.decodeIfPresent(Color.self, forKey: .color)
+        self.color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 
     // MARK: Encodable

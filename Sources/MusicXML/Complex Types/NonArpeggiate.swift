@@ -16,7 +16,7 @@ public struct NonArpeggiate {
     public var type: TopBottom
     public var number: Int?
     public var placement: AboveBelow?
-    public var color: Color?
+    public var color: XMLColor?
 
     // MARK: Attribute Groups
 
@@ -24,7 +24,7 @@ public struct NonArpeggiate {
 
     // MARK: - Initializers
 
-    public init(type: TopBottom, number: Int? = nil, position: Position = Position(), placement: AboveBelow? = nil, color: Color? = nil) {
+    public init(type: TopBottom, number: Int? = nil, position: Position = Position(), placement: AboveBelow? = nil, color: XMLColor? = nil) {
         self.type = type
         self.number = number
         self.position = position
@@ -63,7 +63,7 @@ extension NonArpeggiate: Codable {
         number = try container.decodeIfPresent(Int.self, forKey: .number)
         position = try Position(from: decoder)
         placement = try container.decodeIfPresent(AboveBelow.self, forKey: .placement)
-        color = try container.decodeIfPresent(Color.self, forKey: .color)
+        color = try container.decodeIfPresent(XMLColor.self, forKey: .color)
     }
 }
 
